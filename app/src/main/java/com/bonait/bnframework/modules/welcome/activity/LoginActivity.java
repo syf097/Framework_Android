@@ -180,20 +180,20 @@ public class LoginActivity extends BaseActivity implements Validator.ValidationL
         final String password = mEtPassword.getText().toString();
         //密码加密
         String newPassword = AppUtils.encryptSha256(password);
-
-        OkGo.<BaseCodeJson<AppLoginPo>>post(url)
-                .tag(this)
-                .params("username",userAccount)
-                .params("password",newPassword)
-                .execute(new JsonDialogCallback<BaseCodeJson<AppLoginPo>>(this) {
-                    @Override
-                    public void onSuccess(Response<BaseCodeJson<AppLoginPo>> response) {
-                        BaseCodeJson<AppLoginPo> loginJson = response.body();
-                        if (loginJson != null) {
-                            whichDepartment(userAccount,password,loginJson.getResult());
-                        }
-                    }
-                });
+        skipToMainActivity();
+//        OkGo.<BaseCodeJson<AppLoginPo>>post(url)
+//                .tag(this)
+//                .params("username",userAccount)
+//                .params("password",newPassword)
+//                .execute(new JsonDialogCallback<BaseCodeJson<AppLoginPo>>(this) {
+//                    @Override
+//                    public void onSuccess(Response<BaseCodeJson<AppLoginPo>> response) {
+//                        BaseCodeJson<AppLoginPo> loginJson = response.body();
+//                        if (loginJson != null) {
+//                            whichDepartment(userAccount,password,loginJson.getResult());
+//                        }
+//                    }
+//                });
     }
 
     /**

@@ -61,7 +61,8 @@ public class WelcomeActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         //判断token
-                        doPost();
+//                        doPost();
+                        skipToLoginActivity();
                     }
                 });
             }
@@ -179,7 +180,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        OkGo.cancelAll(builder.build());
+//        OkGo.cancelAll(builder.build());
 
         if (handler != null) {
             //If token is null, all callbacks and messages will be removed.
