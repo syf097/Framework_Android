@@ -24,6 +24,10 @@ public class Item {
 
     public static Item[] ITEMS = new Item[] {
             new Item("Flying in the Light",  "https://i.loli.net/2021/04/01/aGM19dQcEwTmpPy.jpg"),
+            new Item("2",  "https://i.loli.net/2021/04/02/OIVb31cthg8j2fW.jpg"),
+            new Item("3",  "https://i.loli.net/2021/04/02/L1QHZ6RPTSgOYAv.jpg"),
+            new Item("4",  "https://i.loli.net/2021/04/02/ewjLaFo4lXWrbDS.jpg"),
+            new Item("5",  "https://i.loli.net/2021/04/01/aGM19dQcEwTmpPy.jpg"),
     };
 
     public static Item getItem(int id) {

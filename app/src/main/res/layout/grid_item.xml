@@ -15,23 +15,20 @@
      limitations under the License.
 -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.qmuiteam.qmui.layout.QMUILinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-    <com.qmuiteam.qmui.layout.QMUILinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
         <ImageView
             android:id="@+id/imageview_item"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="500px"
             android:contentDescription="@null"
             android:scaleType="centerCrop" />
 
-    </com.qmuiteam.qmui.layout.QMUILinearLayout>>
 
     <TextView
         android:id="@+id/textview_name"
@@ -43,4 +40,4 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
         android:theme="@style/Theme.AppCompat" />
 
-</LinearLayout>
+</com.qmuiteam.qmui.layout.QMUILinearLayout>

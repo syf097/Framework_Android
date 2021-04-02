@@ -5,16 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/qmui_topbar_height"
-        android:background="@color/qmui_config_color_white"
-        android:fitsSystemWindows="true">
-        <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+    <GridView
             android:id="@+id/grid"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/qmui_topbar_height"
             android:clipToPadding="false"
             android:columnWidth="120dp"
             android:drawSelectorOnTop="true"
@@ -22,8 +19,18 @@
             android:numColumns="auto_fit"
             android:padding="@dimen/grid_spacing"
             android:verticalSpacing="@dimen/grid_spacing" />
-
-    </ScrollView>
+    <com.arlib.floatingsearchview.FloatingSearchView
+        android:id="@+id/floating_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:floatingSearch_close_search_on_keyboard_dismiss="true"
+        app:floatingSearch_leftActionMode="noLeftAction"
+        app:floatingSearch_searchBarMarginLeft="@dimen/search_view_inset"
+        app:floatingSearch_searchBarMarginRight="@dimen/search_view_inset"
+        app:floatingSearch_searchBarMarginTop="90dp"
+        app:floatingSearch_searchHint="Search..."
+        app:floatingSearch_showSearchKey="false"
+        app:floatingSearch_suggestionsListAnimDuration="250" />
 
     <com.qmuiteam.qmui.widget.QMUITopBarLayout
         android:id="@+id/topbar"

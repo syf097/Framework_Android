@@ -15,11 +15,15 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.arlib.floatingsearchview.FloatingSearchView;
 import com.bonait.bnframework.R;
 import com.bonait.bnframework.common.base.BaseFragment;
 import com.bonait.bnframework.common.base.Item;
 import com.bonait.bnframework.common.utils.ToastUtils;
 import com.orhanobut.logger.Logger;
+import com.qmuiteam.qmui.layout.QMUILayoutHelper;
+import com.qmuiteam.qmui.layout.QMUILinearLayout;
+import com.qmuiteam.qmui.util.QMUIDisplayHelper;
 import com.qmuiteam.qmui.widget.QMUITopBarLayout;
 import com.squareup.picasso.Picasso;
 
@@ -33,7 +37,12 @@ import butterknife.OnClick;
 public class Home2Fragment extends BaseFragment {
 
 
-@BindView(R.id.grid) GridView grid;
+@BindView(R.id.grid)
+GridView grid;
+@BindView(R.id.topbar)
+QMUITopBarLayout mTopBar;
+@BindView(R.id.floating_search_view)
+FloatingSearchView   mSearchView;
 
     public Home2Fragment() {
     }
@@ -46,8 +55,23 @@ public class Home2Fragment extends BaseFragment {
         GridAdapter adapter = new GridAdapter();
         grid.setAdapter(adapter);
 
+        //search bar
+        mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
+            @Override
+            public void onSearchTextChanged(String oldQuery, final String newQuery) {
+
+                //get suggestions based on newQuery
+
+                //pass them on to the search view
+               // mSearchView.swapSuggestions(newSuggestions);
+            }
+        });
+
         return root;
     }
+
+
+
 
     private final AdapterView.OnItemClickListener mOnItemClickListener
             = new AdapterView.OnItemClickListener() {
@@ -90,8 +114,12 @@ public class Home2Fragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Logger.d("第二页创建");
+        initTopBar();
     }
 
+    private void initTopBar() {
+        mTopBar.setTitle("第二页");
+    }
     /**
      * {@link android.widget.BaseAdapter} which displays items.
      */
@@ -119,6 +147,13 @@ public class Home2Fragment extends BaseFragment {
             }
 
             final Item item = getItem(position);
+
+            QMUILinearLayout layout = view.findViewById(R.id.view_layout);
+            layout.setShadowColor( 0x779974);
+            layout.setShadowAlpha(0.2f);
+            layout.setRadiusAndShadow(QMUIDisplayHelper.dp2px(getContext(), 30),
+                    QMUIDisplayHelper.dp2px(getContext(), 30),
+                    0.25f);
 
             // Load the thumbnail image
             ImageView image = view.findViewById(R.id.imageview_item);
