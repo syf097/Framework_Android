@@ -3,22 +3,70 @@
 <com.qmuiteam.qmui.widget.QMUIWindowInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
 
-
-
-    <GridView
-            android:id="@+id/grid"
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <com.qmuiteam.qmui.widget.QMUITopBarLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/qmui_topbar_height"
+    />
+    <com.wzbos.android.widget.filter.FilterGroupView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="?attr/qmui_topbar_height"
-            android:clipToPadding="false"
-            android:columnWidth="120dp"
-            android:drawSelectorOnTop="true"
-            android:horizontalSpacing="@dimen/grid_spacing"
-            android:numColumns="auto_fit"
-            android:padding="@dimen/grid_spacing"
-            android:verticalSpacing="@dimen/grid_spacing" />
+            android:background="#ffffffff"
+            android:divider="@drawable/divider"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:showDividers="middle">
+
+            <com.wzbos.android.widget.filter.FilterView
+                android:id="@+id/area_filter"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:expandedViewHeight="300dp"
+                app:text="Area" />
+
+            <com.wzbos.android.widget.filter.FilterView
+                android:id="@+id/price_filter"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:expandedViewHeight="300dp"
+                app:text="Price" />
+
+
+            <com.wzbos.android.widget.filter.FilterView
+                android:id="@+id/sort_filter"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:collapseIcon="@mipmap/ic_filter_normal"
+                app:expandedIcon="@mipmap/ic_filter_selected"
+                app:expandedViewHeight="300dp"
+                app:text="Sort" />
+        </com.wzbos.android.widget.filter.FilterGroupView>
+
+    <GridView
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:columnWidth="120dp"
+        android:drawSelectorOnTop="true"
+        android:horizontalSpacing="@dimen/grid_spacing"
+        android:numColumns="auto_fit"
+        android:padding="@dimen/grid_spacing"
+        android:verticalSpacing="@dimen/grid_spacing" />
+</LinearLayout>
+
     <com.arlib.floatingsearchview.FloatingSearchView
         android:id="@+id/floating_search_view"
         android:layout_width="match_parent"
@@ -32,10 +80,6 @@
         app:floatingSearch_showSearchKey="false"
         app:floatingSearch_suggestionsListAnimDuration="250" />
 
-    <com.qmuiteam.qmui.widget.QMUITopBarLayout
-        android:id="@+id/topbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"/>
+
 
 </com.qmuiteam.qmui.widget.QMUIWindowInsetLayout>
